@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from youtube_transcript_api import YouTubeTranscriptApi
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,9 +7,12 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import gensim.downloader as api
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 glove_model = api.load("glove-wiki-gigaword-300")
 
 # Allow all origins (for development purposes; specify your frontend URL in production)
