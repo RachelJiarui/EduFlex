@@ -50,4 +50,3 @@ async def hello(user_input):
             }
         ]).choices[0].message
     return resp.content 
-
