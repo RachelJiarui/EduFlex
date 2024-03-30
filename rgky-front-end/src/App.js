@@ -22,8 +22,8 @@ function App() {
       <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
       <Video youTubeLink={youTubeLink}/>
       <LabelBar youTubeLink={youTubeLink}/>
-      <ProjectInfo userInput={userInput} setImplementationDetails={setImplementationDetails}/>
-      <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
+      <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
+      <ProjectMapping youTubeLink={youTubeLink} youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
     </div>
   );
 }
