@@ -6,8 +6,8 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
 
   useEffect(() => {
     const handleMapping = async () => {
-      const mapping = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
-      setMapping(mapping)
+      const m = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
+      setMapping(m)
     };
 
     handleMapping();
@@ -16,7 +16,7 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
   // represent the text
   return (
     <>
-    {youTubeTranscript.length === 0 && implementationDetails !== "" ? (
+    {youTubeTranscript.length === 0 && implementationDetails !== "" && mapping ? (
       <div>
         {mapping.map(([text, timestamp]) => (
           <div key={timestamp}>
