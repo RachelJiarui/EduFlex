@@ -12,7 +12,7 @@ import ProjectMapping from './components/project-info/ProjectMapping';
 function App() {
   const [userInput, setUserInput] = useState("");
   const [youTubeLink, setYouTubeLink] = useState("");
-  const [youTubeTranscript, setYouTubeTranscript] = useState({}); // text : timestamp (start time, end time)
+  const [youTubeTranscript, setYouTubeTranscript] = useState(""); // text : timestamp (start time, end time)
   const [implementationDetails, setImplementationDetails] = useState("");
 
   return (
