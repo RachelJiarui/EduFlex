@@ -5,11 +5,7 @@ import UserOutput from './components/user-input/UserOutput';
 import VideoInput from './components/video/VideoInput';
 import Video from './components/video/Video';
 import LabelBar from './components/video/LabelBar';
-<<<<<<< HEAD
 import ProjectInfo from './components/project-info/ProjectInfo';
-=======
-import ProjectInfo from './components/project-info/ProjectInfo.js';
->>>>>>> 73faf390d172cf0e375f660c93feb21129567d2b
 import ProjectMapping from './components/project-info/ProjectMapping';
 
 
