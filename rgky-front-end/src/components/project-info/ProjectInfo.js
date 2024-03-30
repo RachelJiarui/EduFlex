@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { fetchImplementationGPT } from '.././services/fetchImplementationGPT.js';
+import { fetchImplementationGPT } from '../.././services/fetchImplementationGPT.js';
 
 function ProjectInfo({ userInput, implementationDetails, setImplementationDetails }) {
   useEffect(() => {
@@ -12,10 +12,18 @@ function ProjectInfo({ userInput, implementationDetails, setImplementationDetail
   }, [userInput]);
 
   return (
-    <div>
-      {implementationDetails && {implementationDetails}}
-    </div>
-  )
+    <>
+      {userInput !== "" && implementationDetails !== "" ? (
+        <div>
+          {implementationDetails}
+        </div>
+      ) : (
+        <div>
+          Hi
+        </div>
+      )}
+    </>
+  );
 }
 
 export default ProjectInfo;

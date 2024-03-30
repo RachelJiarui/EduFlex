@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { implementationMappings } from '.././services/implementationMappings.js';
+import { implementationMappings } from '../.././services/implementationMappings.js';
 
 function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTubeTranscript {text : timestamp (start time, end time)}
   const [mapping, setMapping] = useState([]); // [subSetImplementationText: (timeStamp) ]
@@ -15,13 +15,19 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
 
   // represent the text
   return (
-    <div>
-      {mapping.map(([text, timestamp]) => (
-        <div>
-          {text}: {timestamp}
-        </div>
-      ))}
-    </div>
+    <>
+    {youTubeTranscript.length === 0 && implementationDetails !== "" ? (
+      <div>
+        {mapping.map(([text, timestamp]) => (
+          <div key={timestamp}>
+            {text}: {timestamp}
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div>Hi</div>
+    )}
+  </>
   );
 }
 
