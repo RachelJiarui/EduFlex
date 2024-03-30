@@ -23,7 +23,7 @@ function App() {
       <Video youTubeLink={youTubeLink}/>
       <LabelBar youTubeLink={youTubeLink}/>
       <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
-      <ProjectMapping youTubeLink={youTubeLink} youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
+      <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
     </div>
   );
 }

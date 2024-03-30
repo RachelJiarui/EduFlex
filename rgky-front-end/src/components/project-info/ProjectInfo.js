@@ -1,21 +1,29 @@
 import React, { useEffect } from 'react';
-// import { fetchImplementationGPT } from '.././services/fetchImplementationGPT.js';
+import { fetchImplementationGPT } from '../.././services/fetchImplementationGPT.js';
 
 function ProjectInfo({ userInput, implementationDetails, setImplementationDetails }) {
-//   useEffect(() => {
-//     const handleUserInputChange = async () => {
-//       const impD = await fetchImplementationGPT(userInput);
-//       setImplementationDetails(impD);
-//     };
+  useEffect(() => {
+    const handleUserInputChange = async () => {
+      const impD = await fetchImplementationGPT(userInput);
+      setImplementationDetails(impD);
+    };
 
-//     handleUserInputChange();
-//   }, [userInput, setImplementationDetails]);
+    handleUserInputChange();
+  }, [userInput]);
 
-//   return (
-//     <div>
-//       {implementationDetails && {implementationDetails}}
-//     </div>
-//   )
+  return (
+    <>
+      {userInput !== "" && implementationDetails !== "" ? (
+        <div>
+          {implementationDetails}
+        </div>
+      ) : (
+        <div>
+          Hi
+        </div>
+      )}
+    </>
+  );
 }
 
 export default ProjectInfo;
