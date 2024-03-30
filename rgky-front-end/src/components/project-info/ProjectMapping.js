@@ -6,7 +6,7 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
 
   useEffect(() => {
     const handleMapping = async () => {
-      const mapping = await implementationMappings(implementationDetails,youTubeTranscript) // [ subSetImplementationText: (timeStamp) ]
+      const mapping = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
       setMapping(mapping)
     };
 
