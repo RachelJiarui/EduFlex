@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import UserInput from './user-input/UserInput';
 import UserOutput from './user-input/UserOutput';
@@ -9,15 +10,20 @@ import ProjectMapping from './project-info/ProjectMapping';
 
 
 function App() {
+  const [userInput, setUserInput] = useState("");
+  const [youTubeLink, setYouTubeLink] = useState("");
+  const [youTubeTranscript, setYouTubeTranscript] = useState({}); // text : timestamp (start time, end time)
+  const [implementationDetails, setImplementationDetails] = useState("");
+
   return (
     <div className="App">
-      <UserInput/>
-      <UserOutput/>
-      <VideoInput/>
-      <Video/>
-      <LabelBar/>
-      <ProjectInfo/>
-      <ProjectMapping/>
+      <UserInput setUserInput={setUserInput}/>
+      <UserOutput userInput={userInput} />
+      <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
+      <Video youTubeLink={youTubeLink}/>
+      <LabelBar youTubeLink={youTubeLink}/>
+      <ProjectInfo userInput={userInput} setImplementationDetails={setImplementationDetails}/>
+      <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
     </div>
   );
 }
