@@ -48,6 +48,6 @@ async def hello(user_input):
             {
                 "role": "user", "content": user_input
             }
-        ])['choices'][0]['message']['content']
+        ]).choices[0].message
     return resp
 
