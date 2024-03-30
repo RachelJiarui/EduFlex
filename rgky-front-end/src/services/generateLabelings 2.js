@@ -1,3 +1,0 @@
-function generateLabelings(youtubeLink) {
-
-} // labels
