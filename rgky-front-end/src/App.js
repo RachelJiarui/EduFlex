@@ -5,14 +5,14 @@ import UserOutput from './components/user-input/UserOutput';
 import VideoInput from './components/video/VideoInput';
 import Video from './components/video/Video';
 import LabelBar from './components/video/LabelBar';
-import ProjectInfo from './components/project-info/ProjectInfo.js';
+import ProjectInfo from './components/project-info/ProjectInfo';
 import ProjectMapping from './components/project-info/ProjectMapping';
 
 
 function App() {
   const [userInput, setUserInput] = useState("");
   const [youTubeLink, setYouTubeLink] = useState("");
-  const [youTubeTranscript, setYouTubeTranscript] = useState({}); // text : timestamp (start time, end time)
+  const [youTubeTranscript, setYouTubeTranscript] = useState(""); // text : timestamp (start time, end time)
   const [implementationDetails, setImplementationDetails] = useState("");
 
   return (
