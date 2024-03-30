@@ -9,7 +9,7 @@ function ProjectInfo({ userInput, implementationDetails, setImplementationDetail
     };
 
     handleUserInputChange();
-  }, [userInput, setImplementationDetails]);
+  }, [userInput]);
 
   return (
     <div>
