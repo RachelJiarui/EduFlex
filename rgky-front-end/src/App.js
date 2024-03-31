@@ -8,12 +8,16 @@ import LabelBar from './components/video/LabelBar';
 import ProjectInfo from './components/project-info/ProjectInfo';
 import ProjectMapping from './components/project-info/ProjectMapping';
 import './components/project-info/ProjectInfo.css'
+import data from '../src/data.json'
 
 function App() {
   const [userInput, setUserInput] = useState("");
   const [youTubeLink, setYouTubeLink] = useState("");
   const [youTubeTranscript, setYouTubeTranscript] = useState(""); // text : timestamp (start time, end time)
   const [implementationDetails, setImplementationDetails] = useState("");
+  const segments = data;
+
+
 
   return (
     <>
@@ -27,17 +31,15 @@ function App() {
       </div>
       </div>
     ) : (
-      <div>
+      <div className= "mainContent">
         <h1 className="smallHeading">EduFlex</h1>
         <div className="inputAndVideo">
           <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
           <Video youTubeLink={youTubeLink} />
           <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
         </div>
-        <UserOutput userInput={userInput} />
-        <LabelBar youTubeLink={youTubeLink}/>
-        
-        
+        <LabelBar youTubeLink={youTubeLink} segments = {segments}/>
+        <UserOutput userInput={userInput} /> 
       </div>
     )}
    </>

@@ -10,7 +10,7 @@ import gensim.downloader as api
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from typing import List
-import marked from 'marked'
+
 
 load_dotenv()
 
@@ -61,7 +61,8 @@ async def get_transcript_with_timestamp(video_id: str):  # Renamed function for 
 @app.get("/get-openai-implementation/{user_input}")
 async def hello(user_input):
     input_str = """Format using markdown. An example is as follows: 
-                   #Programming with Data
+                   
+                   #Programming with Data:
                    This is some text that is under this headings 
                    
                    END EXAMPLE
@@ -70,7 +71,7 @@ async def hello(user_input):
     resp = client.chat.completions.create(model="gpt-3.5-turbo",
         messages=[
             {
-                "role": "system", "content": "Given a project idea, return a bullet point list separated by newlines on how one might implement the project."
+                "role": "system", "content": "Given a project idea, return a numbered list with a relavant title in markdown separated by newlines on how one might implement the project. ONLY INCLUDE THE LIST, no extra text"
             },
             {
                 "role": "user", "content": input_str  

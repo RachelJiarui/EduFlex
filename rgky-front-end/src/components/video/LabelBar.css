@@ -1,0 +1,33 @@
+.label-bar-container {
+    position: relative;
+    margin-top: 5px; /* Adjust margin as needed */
+    /* width: 50%; */
+    margin-left: 28.5vw;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .label-bar {
+    height: 10px; /* Adjust height of the bar */
+    background-color: #f0f0f0; /* Set background color */
+    display: flex;
+    align-items: center;
+    
+
+  }
+  
+  .segment {
+    cursor: pointer;
+    height: 100%; /* Adjust height of segments to match bar height */
+   
+  }
+  
+  .tooltip {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-top: 10px;
+    z-index: 999; /* Ensure it's on top of other elements */
+  }
+  

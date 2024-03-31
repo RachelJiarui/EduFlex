@@ -1,12 +1,13 @@
 .gptOutput{
-    width: 50vw; /* Adjust the width as needed */
+    width: 60vw; /* Adjust the width as needed */
     height:48vh; /* Set a fixed height */
     overflow-y: auto; /* Enables vertical scrolling */
     border: 5px solid #ccc; /* Optional: adds a border */
     padding: 10px; /* Optional: adds some padding inside the scroll box */
     border-radius: 10px;
     margin-top: 20px;
-    color: #ccc; 
+    color: #ccc;
+    font-size: 15px;
     
 }
 

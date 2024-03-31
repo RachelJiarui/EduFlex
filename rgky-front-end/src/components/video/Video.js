@@ -21,7 +21,7 @@ function Video({ youTubeLink }) { // Changed 'link' to 'youTubeLink'
   return (
     <div className="video-responsive">
       <iframe
-        width="800"
+        width="600"
         height="400"
         src={videoSrc}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
