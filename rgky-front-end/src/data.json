@@ -1,0 +1,44 @@
+[
+    {
+        "summary": "Today we'll talk about how to make machines see computer vision. And today we will present a competition that teaches you about concepts of deep reinforcement learning. Whoever does well in this competition is likely to produce a publication or ideas that would lead the world in the area of perception.",
+        "gist": "How to Make Computers See Computer Vision",
+        "headline": "Today we'll talk about how to make machines see computer vision",
+        "start": 640,
+        "end": 800386
+    },
+    {
+        "summary": "In deep learning, a lot of tricks that make things work. Convolutional neural networks use spatial invariance. They use the idea that a cat in the top left corner of an image is the same as one in the bottom right corner. This makes training much more efficient on large class problems.",
+        "gist": "Deep Learning: Convolutional Neural Networks",
+        "headline": "Convolutional neural networks make training much more efficient on large class problems",
+        "start": 800570,
+        "end": 1481104
+    },
+    {
+        "summary": "Alexnet and Vggnet both followed a very similar architecture, very uniform throughout its depth. Googlenet introduced the inception module, which allows for the training to be more efficient and effective. The state of the art in 2017 is squeezing excitation networks.",
+        "gist": "Deep Learning in 2017: The Inception Module",
+        "headline": "Alexnet and Vggnet both followed a similar architecture, very uniform",
+        "start": 1484124,
+        "end": 2078264
+    },
+    {
+        "summary": " fully convolutional neural networks task to segment the image at a pixel level. These networks are really producing a heat map. Different parts of the network are getting excited based on the different aspects of the image. There's been a lot of advancement in the last three years but it's still an incredibly difficult problem.",
+        "gist": "Deep learning: Fully Convolutional Neural Networks",
+        "headline": "The goal of segmentation is to classify the image at a pixel level",
+        "start": 2080444,
+        "end": 2675524
+    },
+    {
+        "summary": "For the driving context for the robotics contest and what we'd like to do with segfuze for the segmentation, dynamic scene. The movement of pixels is essential through time. Deep learning is stacking these networks together.",
+        "gist": "Deep Learning for Cinematic Segments",
+        "headline": "Flow is the computation of how pixels move through time in an image",
+        "start": 2675944,
+        "end": 3165114
+    },
+    {
+        "summary": "Next lecture next week will be on deep learning for sensing the human, understanding the human. Tomorrow at 01:00 p. m. we will release online only lecture on capsule networks and Gans general adversarial networks.",
+        "gist": "Deep Learning Lect",
+        "headline": "Next lecture next week will be on deep learning for sensing the human",
+        "start": 3166974,
+        "end": 3190834
+    }
+]
