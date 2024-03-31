@@ -16,15 +16,22 @@ function App() {
   const [implementationDetails, setImplementationDetails] = useState("");
 
   return (
-    <div className="App">
-      <UserInput setUserInput={setUserInput}/>
-      <UserOutput userInput={userInput} />
-      <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
-      <Video youTubeLink={youTubeLink}/>
-      <LabelBar youTubeLink={youTubeLink}/>
-      <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
-      <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
-    </div>
+    <>
+    {youTubeLink == "" || userInput == "" ? (
+      <div>
+         <UserInput setUserInput={setUserInput}/>
+         <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
+      </div>
+    ) : (
+      <div>
+        <UserOutput userInput={userInput} />
+        <Video youTubeLink={youTubeLink}/>
+        <LabelBar youTubeLink={youTubeLink}/>
+        <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
+        <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
+      </div>
+    )}
+   </>
   );
 }
 
