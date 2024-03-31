@@ -19,8 +19,12 @@ function App() {
     <>
     {youTubeLink == "" || userInput == "" ? (
       <div>
+      <h1 className="typing-animation">EduFlex</h1>
+      <h2>Projects Made Easy</h2>
+      <div className="inputs">
          <UserInput setUserInput={setUserInput}/>
          <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
+      </div>
       </div>
     ) : (
       <div>
