@@ -69,15 +69,15 @@ def clean_and_tokenize(text):
 
 @app.post('/implementation_mappings/<implementation_text>/<transcript>')
 async def implementation_mappings(implementation_text, transcript):
-    glove_model = api.load("glove-wiki-gigaword-300")
     result = []
 
     for text_dict in transcript:
         text = text_dict['Text']
         time = text_dict['Time']
         text_tokens = clean_and_tokenize(text)
+        bps = implementation_text.split("-")
         
-        for bp in implementation_text:
+        for bp in bps:
             bp_tokens = clean_and_tokenize(bp)
             for bp_token in bp_tokens:
                 for text_token in text_tokens:
