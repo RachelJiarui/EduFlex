@@ -7,9 +7,12 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
     const handleMapping = async () => {
       if (youTubeTranscript !== "" && implementationDetails !== "") {
         const m = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
-        console.log("Retrieved m:")
-        console.log(m)
-        setMapping(m)
+        const dictM = {}
+        for (const item in m) {
+          dictM[item[0]] = item[1]
+        }
+        const listM = Object.entries(dictM);
+        setMapping(listM)
       } else {
         console.log("Did not update mapping")
       }
