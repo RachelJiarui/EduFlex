@@ -26,7 +26,7 @@ function ProjectInfo({ userInput, implementationDetails, setImplementationDetail
           dangerouslySetInnerHTML={createMarkup(marked.parse(implementationDetails))}
         />
       ) : (
-        <div>Hi</div>
+        <div className="loading">Loading proposed implementation...</div>
       )}
     </>
   );
