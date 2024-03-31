@@ -8,10 +8,14 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
       if (youTubeTranscript !== "" && implementationDetails !== "") {
         const m = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
         const dictM = {}
-        for (const item in m) {
-          dictM[item[0]] = item[1]
+        // console.log(m)
+        for (let i = 0; i < m.length; i+=1) {
+          // console.log(m[i])
+          dictM[m[i][0]] = m[i][1]
         }
+        // console.log(dictM)
         const listM = Object.entries(dictM);
+        // console.log(listM)
         setMapping(listM)
       } else {
         console.log("Did not update mapping")
@@ -21,19 +25,33 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
     handleMapping();
   }, [youTubeTranscript, implementationDetails]);
 
+  function formatTime(totalSeconds) {
+    const hours = Math.floor(totalSeconds / 3600); // There are 3600 seconds in an hour
+    const minutes = Math.floor((totalSeconds % 3600) / 60); // Remaining seconds divided by 60
+    const seconds = Math.floor(totalSeconds % 60); // Remaining seconds
+
+    // Pad the minutes and seconds with leading zeros if needed
+    const paddedHours = String(hours).padStart(2, '0');
+    const paddedMinutes = String(minutes).padStart(2, '0');
+    const paddedSeconds = String(seconds).padStart(2, '0');
+
+    return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+}
+
   // represent the text
   return (
     <>
     {youTubeTranscript.length !== 0 && implementationDetails !== "" && mapping ? (
-      <div className="gptOutput">
+      <div className="mappingOutput">
         {mapping.map(([text, timestamp]) => (
           <div key={timestamp}>
-            {text}: {timestamp}
+            {text}: {formatTime(timestamp[0])} timestamp
           </div>
         ))}
+        <br></br>
       </div>
     ) : (
-      <div>Hi mapping</div>
+      <div className='loading'>Loading implementation mapping...</div>
     )}
   </>
   );

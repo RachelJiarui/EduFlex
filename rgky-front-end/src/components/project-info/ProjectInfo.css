@@ -11,6 +11,48 @@
     
 }
 
+.mappingOutput{
+    width: 60vw; /* Adjust the width as needed */
+    height:48vh; /* Set a fixed height */
+    overflow-y: auto; /* Enables vertical scrolling */
+    border: 5px solid #ccc; /* Optional: adds a border */
+    padding: 10px; /* Optional: adds some padding inside the scroll box */
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #ccc;
+    font-size: 15px;
+    
+}
+
+/* Adjusts the container holding all mappings */
+.mappingOutput {
+    display: flex;
+    flex-direction: column; /* Align items in a column */
+    gap: 10px; /* Creates space between each item */
+    padding: 10px; /* Padding around the container */
+  }
+  
+  /* Style for individual mapping items */
+  .mappingOutput div {
+    background-color: #f0f0f0; /* Light background color for each item */
+    padding: 8px; /* Padding inside each item */
+    border-radius: 5px; /* Optional: Rounded corners for aesthetics */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow */
+  }
+  
+  /* Enhances readability */
+  .mappingOutput div:hover {
+    background-color: #e2e2e2; /* Slightly darker background on hover */
+  }
+  
+  /* Typography */
+  .mappingOutput div {
+    font-size: 0.9rem; /* Adjust font size as needed */
+    color: #333; /* Dark color for text for better contrast */
+    line-height: 1.4; /* Adjust line height for better readability */
+  }
+
+  
 .loading {
     color: white;
 }

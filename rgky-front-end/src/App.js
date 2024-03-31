@@ -32,14 +32,13 @@ function App() {
       </div>
     ) : (
       <div className= "mainContent">
-        <h1 className="smallHeading">EduFlex</h1>
+        <h1 className="smallHeading">EduFlex/{userInput}</h1>
         <div className="inputAndVideo">
           <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
           <Video youTubeLink={youTubeLink} />
           <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
         </div>
         <LabelBar youTubeLink={youTubeLink} segments = {segments}/>
-        <UserOutput userInput={userInput} /> 
       </div>
     )}
    </>

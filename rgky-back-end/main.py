@@ -98,7 +98,7 @@ async def implementation_mappings(req_body: ImplementationMappingRequest):
         text = text_dict.Text
         time = text_dict.Time
         text_tokens = clean_and_tokenize(text)
-        bps = req_body.implementationText.split("-")
+        bps = req_body.implementationText.split("\n")
         
         for bp in bps:
             bp_tokens = clean_and_tokenize(bp)
