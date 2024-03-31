@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile, HTTPException
 from youtube_transcript_api import YouTubeTranscriptApi
 from fastapi.middleware.cors import CORSMiddleware
 from openai import OpenAI
@@ -10,8 +10,9 @@ import gensim.downloader as api
 from dotenv import load_dotenv
 from pydantic import BaseModel
 from typing import List
-
-
+from datetime import datetime
+from model import AutoYouTubeTimestamp
+import logging
 load_dotenv()
 
 
@@ -114,3 +115,23 @@ async def implementation_mappings(req_body: ImplementationMappingRequest):
 
     print(result)
     return result
+
+@app.post("/process_audio")
+async def process_audio(file: UploadFile = File(...)):
+    if not file:
+        raise HTTPException(status_code=400, detail="No file provided")
+
+    try:
+        file_path = os.path.join("/Users/kevinpolackal/Desktop/rgky/rgky-back-end/todo.mp3")
+        with open(file_path, "wb") as f:
+            f.write(file.file.read())
+
+        auto_timestamp = AutoYouTubeTimestamp()
+        auto_timestamp.run(file_path)
+
+        return {"message": "Audio processing completed successfully"}
+    except Exception as e:
+        logging.error(f"Error processing audio: {str(e)}")
+        raise HTTPException(status_code=500, detail="An error occurred during audio processing")
+    
+    

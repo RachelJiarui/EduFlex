@@ -9,13 +9,14 @@ import ProjectInfo from './components/project-info/ProjectInfo';
 import ProjectMapping from './components/project-info/ProjectMapping';
 import './components/project-info/ProjectInfo.css'
 import data from '../src/data.json'
+import data2 from '../src/todo.json'
 
 function App() {
   const [userInput, setUserInput] = useState("");
   const [youTubeLink, setYouTubeLink] = useState("");
   const [youTubeTranscript, setYouTubeTranscript] = useState(""); // text : timestamp (start time, end time)
   const [implementationDetails, setImplementationDetails] = useState("");
-  const segments = data;
+  const segments = data2;
 
 
 

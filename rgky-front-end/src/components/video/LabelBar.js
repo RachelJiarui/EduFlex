@@ -50,6 +50,7 @@ const LabelBar = ({ youTubeLink, segments}) => {
             >
               {hoveredSegment === segment && (
                 <div className="tooltip">
+                  <div>Start Time: {formatTime(segment.start)} </div>
                   <div>Duration: {formatTime(segment.end - segment.start)}</div>
                   <div>{segment.gist}</div>
                 </div>

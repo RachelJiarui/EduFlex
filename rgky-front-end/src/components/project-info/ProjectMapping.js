@@ -45,13 +45,15 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
       <div className="mappingOutput">
         {mapping.map(([text, timestamp]) => (
           <div key={timestamp}>
-            {text}: {formatTime(timestamp[0])} timestamp
+            {text}
+            <br></br>
+             {formatTime(timestamp[0])} timestamp
           </div>
         ))}
         <br></br>
       </div>
     ) : (
-      <div className='loading'>Loading implementation mapping...</div>
+      <div className="loading">Loading implementation mapping...</div>
     )}
   </>
   );

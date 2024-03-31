@@ -1,0 +1,30 @@
+[
+    {
+        "summary": "In this video we will create a to do list app using HTML, CSS and JavaScript. In this app we can save our task that has to be completed or if it is completed we can mark it as completed. Before starting this video please hit the like button and also subscribe my channel easy tutorials.",
+        "gist": "To Do List App",
+        "headline": "We will create a to do list app using HTML, CSS and JavaScript",
+        "start": 680,
+        "end": 120024
+    },
+    {
+        "summary": "One HTML file, one CSS file and another folder called images. Let me open these files with my code editor which is visual Studio code. Here I have added margin padding, font family and box sizing. These CSS properties are applicable for all the HTML element. Open this webpage with visual studio code extension called Live server.",
+        "gist": " todo list",
+        "headline": "I have one HTML file, one CSS file and another folder called images",
+        "start": 120724,
+        "end": 564436
+    },
+    {
+        "summary": "Right now we are adding the task name manually. We will delete it later and we will add the task using the JavaScript when we will click on the button. Right now it will display task one, two, three here. We have to add the CSS for this one.",
+        "gist": "Add task in C#",
+        "headline": "We will add the task using the JavaScript",
+        "start": 564580,
+        "end": 1060163
+    },
+    {
+        "summary": "In this list we have to add one cross icon. If we will click on this particular task, it will be checked or unchecked. We have to store these tasks in our browser so that whenever we will open the browser again, our task list or to do list will be displayed as it is.",
+        "gist": "Blender 2.8",
+        "headline": "We have to store these tasks in our browser so that whenever we refresh",
+        "start": 1061383,
+        "end": 1605794
+    }
+]
