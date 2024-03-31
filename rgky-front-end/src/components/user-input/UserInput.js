@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import './UserInput.css';
+import '../inputs.scss';
 
 function UserInput({ setUserInput }) {
+    const [topic, setTopic] = useState("");
+
+    const handleTopicChange = (e) => {
+        setTopic(e.target.value);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-      
-        const inputFieldValue = event.target.elements.inputField.value;
-
-        setUserInput(inputFieldValue);
+        setUserInput(topic);
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}> 
-                <label htmlFor="inputField">Enter a field of interest:</label><br />
-                <div class = "input">      
-                    <input type="text" id="inputField" name="inputField" placeholder='Enter topic of choice' /><br /><br />
-                    <button type="submit">Submit</button>
-                </div> 
-            </form>
+        <div className="container">
+            <div class="input-group">
+                <label class="input-group__label" for="myInput">Enter A Topic</label>
+                <input type="text" id="myInput" class="input-group__input" value = {topic} onChange = {handleTopicChange}></input>
+            </div>
+            <button onClick={handleSubmit} className="button">Get Topic</button>
         </div>
     );
 }
