@@ -8,10 +8,23 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import gensim.downloader as api
 from dotenv import load_dotenv
+from pydantic import BaseModel
+from typing import List
 
 load_dotenv()
 
+
+
 app = FastAPI()
+
+class TranscriptItem(BaseModel):
+    Text: str
+    Time: List[float]
+
+class ImplementationMappingRequest(BaseModel):
+    implementationText: str 
+    transcript: List[TranscriptItem]
+
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 glove_model = api.load("glove-wiki-gigaword-300")
 
@@ -44,7 +57,7 @@ async def get_transcript_with_timestamp(video_id: str):  # Renamed function for 
         )
     return transcript_data_formatted
 
-@app.get("/get-openai-implementation/<user_input>")
+@app.get("/get-openai-implementation/{user_input}")
 async def hello(user_input):
     resp = client.chat.completions.create(model="gpt-3.5-turbo",
         messages=[
@@ -67,23 +80,28 @@ def clean_and_tokenize(text):
     cleaned_tokens = [porter.stem(token) for token in tokens if token.isalnum() and token not in stop_words]
     return cleaned_tokens
 
-@app.post('/implementation_mappings/<implementation_text>/<transcript>')
-async def implementation_mappings(implementation_text, transcript):
-    glove_model = api.load("glove-wiki-gigaword-300")
+@app.post('/implementation_mappings/')
+async def implementation_mappings(req_body: ImplementationMappingRequest):
+    print("Got here!")
     result = []
-
-    for text_dict in transcript:
-        text = text_dict['Text']
-        time = text_dict['Time']
+    print("Did you get here?")
+    for text_dict in req_body.transcript:
+        text = text_dict.Text
+        time = text_dict.Time
         text_tokens = clean_and_tokenize(text)
+        bps = req_body.implementationText.split("-")
         
-        for bp in implementation_text:
+        for bp in bps:
             bp_tokens = clean_and_tokenize(bp)
             for bp_token in bp_tokens:
                 for text_token in text_tokens:
-                    similarity = glove_model.similarity(bp_token, text_token)
+                    if text_token in glove_model.key_to_index and bp_token in glove_model.key_to_index:
+                        similarity = glove_model.similarity(bp_token, text_token)
+                    else:
+                        similarity = 0
                     if similarity > THRESHOLD:
                         result.append((bp, time))
                         break
 
+    print(result)
     return result

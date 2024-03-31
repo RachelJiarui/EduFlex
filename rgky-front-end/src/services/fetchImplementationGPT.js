@@ -1,6 +1,6 @@
 export async function fetchImplementationGPT(userInput) {
   // make sure the api requests implementation in the form of bulleted points
-  const url = `http://localhost:8000/get-openai-implementation/<user_input>?user_input=${userInput}`; // Update the URL as needed
+  const url = `http://localhost:8000/get-openai-implementation/${userInput}`; // Update the URL as needed
     try {
       const response = await fetch(url);
       if (!response.ok) {

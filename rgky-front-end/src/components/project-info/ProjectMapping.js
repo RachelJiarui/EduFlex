@@ -3,20 +3,25 @@ import { implementationMappings } from '../.././services/implementationMappings.
 
 function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTubeTranscript {text : timestamp (start time, end time)}
   const [mapping, setMapping] = useState([]); // [subSetImplementationText: (timeStamp) ]
-
   useEffect(() => {
     const handleMapping = async () => {
-      const m = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
-      setMapping(m)
+      if (youTubeTranscript !== "" && implementationDetails !== "") {
+        const m = await implementationMappings(implementationDetails,youTubeTranscript) // [ (subSetImplementationText, [start_time, end_time] ) ]
+        console.log("Retrieved m:")
+        console.log(m)
+        setMapping(m)
+      } else {
+        console.log("Did not update mapping")
+      }
     };
-
+  
     handleMapping();
   }, [youTubeTranscript, implementationDetails]);
 
   // represent the text
   return (
     <>
-    {youTubeTranscript.length === 0 && implementationDetails !== "" && mapping ? (
+    {youTubeTranscript.length !== 0 && implementationDetails !== "" && mapping ? (
       <div>
         {mapping.map(([text, timestamp]) => (
           <div key={timestamp}>
@@ -25,7 +30,7 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
         ))}
       </div>
     ) : (
-      <div>Hi</div>
+      <div>Hi mapping</div>
     )}
   </>
   );

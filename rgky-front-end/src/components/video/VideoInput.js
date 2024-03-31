@@ -14,11 +14,10 @@ function VideoInput({ setYouTubeLink, setYouTubeTranscript }) {
         e.preventDefault(); // Prevents the default form submission behavior
         try {
             const response = await getTranscript(link); // Assuming this returns an object
-            console.log(response); // Log to see the structure
             // Assuming the response is an object with a Transcript key
-            if(response.Transcript) {
-                setTranscript(response.Transcript);
-                setYouTubeTranscript(response.Transcript);
+            if (response) {
+                setTranscript(response);
+                setYouTubeTranscript(response);
                 
             } else {
                 // Handle cases where the Transcript key might not be present
