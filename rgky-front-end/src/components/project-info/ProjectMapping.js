@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { implementationMappings } from '../.././services/implementationMappings.js';
-
+import '../project-info/ProjectInfo.css'
 function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTubeTranscript {text : timestamp (start time, end time)}
   const [mapping, setMapping] = useState([]); // [subSetImplementationText: (timeStamp) ]
   useEffect(() => {
@@ -22,7 +22,7 @@ function ProjectMapping({youTubeTranscript, implementationDetails }) { // youTub
   return (
     <>
     {youTubeTranscript.length !== 0 && implementationDetails !== "" && mapping ? (
-      <div>
+      <div className="gptOutput">
         {mapping.map(([text, timestamp]) => (
           <div key={timestamp}>
             {text}: {timestamp}

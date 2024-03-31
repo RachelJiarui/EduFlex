@@ -7,7 +7,7 @@ import Video from './components/video/Video';
 import LabelBar from './components/video/LabelBar';
 import ProjectInfo from './components/project-info/ProjectInfo';
 import ProjectMapping from './components/project-info/ProjectMapping';
-
+import './components/project-info/ProjectInfo.css'
 
 function App() {
   const [userInput, setUserInput] = useState("");
@@ -19,7 +19,7 @@ function App() {
     <>
     {youTubeLink == "" || userInput == "" ? (
       <div>
-      <h1 className="typing-animation">EduFlex</h1>
+      <h1 className="mainHeading">EduFlex</h1>
       <h2>Projects Made Easy</h2>
       <div className="inputs">
          <UserInput setUserInput={setUserInput}/>
@@ -28,11 +28,16 @@ function App() {
       </div>
     ) : (
       <div>
+        <h1 className="smallHeading">EduFlex</h1>
+        <div className="inputAndVideo">
+          <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
+          <Video youTubeLink={youTubeLink} />
+          <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
+        </div>
         <UserOutput userInput={userInput} />
-        <Video youTubeLink={youTubeLink}/>
         <LabelBar youTubeLink={youTubeLink}/>
-        <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
-        <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
+        
+        
       </div>
     )}
    </>
