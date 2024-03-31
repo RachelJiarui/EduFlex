@@ -14,7 +14,7 @@ function ProjectInfo({ userInput, implementationDetails, setImplementationDetail
   return (
     <>
       {userInput !== "" && implementationDetails !== "" ? (
-        <div>
+        <div className="gptOutput">
           {implementationDetails}
         </div>
       ) : (

@@ -1,5 +1,6 @@
 import React from 'react';
 import getId from '../../services/getId';
+import '../video/Video.css';
 
 function Video({ youTubeLink }) { // Changed 'link' to 'youTubeLink'
   // Check if youTubeLink is empty and return null to render nothing
@@ -20,8 +21,8 @@ function Video({ youTubeLink }) { // Changed 'link' to 'youTubeLink'
   return (
     <div className="video-responsive">
       <iframe
-        width="560"
-        height="315"
+        width="800"
+        height="400"
         src={videoSrc}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
