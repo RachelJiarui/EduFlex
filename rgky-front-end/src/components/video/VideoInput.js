@@ -1,27 +1,24 @@
 import { useState } from 'react';
 import { getTranscript } from '../../services/getTranscript';
+import '../inputs.scss';
 
 function VideoInput({ setYouTubeLink, setYouTubeTranscript }) {
     const [link, setLink] = useState("");
     const [transcript, setTranscript] = useState("");
-    let data;
     const handleInputChange = (e) => {
         setLink(e.target.value);
     };
 
     const handleSubmission = async (e) => {
-        setYouTubeLink(link);
         e.preventDefault(); // Prevents the default form submission behavior
+        setYouTubeLink(link);
         try {
             const response = await getTranscript(link); // Assuming this returns an object
-            console.log(response); // Log to see the structure
-            // Assuming the response is an object with a Transcript key
-            if(response.Transcript) {
-                setTranscript(response.Transcript);
-                setYouTubeTranscript(response.Transcript);
-                
+            // Handle the response according to your application's needs
+            if (response) {
+                setTranscript(response);
+                setYouTubeTranscript(response);
             } else {
-                // Handle cases where the Transcript key might not be present
                 setTranscript("Transcript not available.");
             }
         } catch (error) {
@@ -29,12 +26,16 @@ function VideoInput({ setYouTubeLink, setYouTubeTranscript }) {
             setTranscript("Failed to load transcript. Please try again later.");
         }
     };
-    
 
     return (
-        <div>
-            <input placeholder="Enter YouTube URL" value={link} onChange={handleInputChange}></input>
-            <button onClick={handleSubmission}>Get Transcript</button>
+        <div className="container">
+            <div class="input-group">
+                <label class="input-group__label" for="myInput">Enter A Youtube URL</label>
+                <input type="text" id="myInput" class="input-group__input" value = {link} onChange = {handleInputChange}></input>
+            </div>
+            <button onClick={handleSubmission} className="button">Get Transcript</button>
+            {/* Display transcript or error message */}
+            
         </div>
     );
 }

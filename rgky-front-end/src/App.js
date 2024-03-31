@@ -7,24 +7,42 @@ import Video from './components/video/Video';
 import LabelBar from './components/video/LabelBar';
 import ProjectInfo from './components/project-info/ProjectInfo';
 import ProjectMapping from './components/project-info/ProjectMapping';
-
+import './components/project-info/ProjectInfo.css'
+import data from '../src/data.json'
 
 function App() {
   const [userInput, setUserInput] = useState("");
   const [youTubeLink, setYouTubeLink] = useState("");
   const [youTubeTranscript, setYouTubeTranscript] = useState(""); // text : timestamp (start time, end time)
   const [implementationDetails, setImplementationDetails] = useState("");
+  const segments = data;
+
+
 
   return (
-    <div className="App">
-      <UserInput setUserInput={setUserInput}/>
-      <UserOutput userInput={userInput} />
-      <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
-      <Video youTubeLink={youTubeLink}/>
-      <LabelBar youTubeLink={youTubeLink}/>
-      <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
-      <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
-    </div>
+    <>
+    {youTubeLink == "" || userInput == "" ? (
+      <div>
+      <h1 className="mainHeading">EduFlex</h1>
+      <h2>Projects Made Easy</h2>
+      <div className="inputs">
+         <UserInput setUserInput={setUserInput}/>
+         <VideoInput setYouTubeLink={setYouTubeLink} setYouTubeTranscript={setYouTubeTranscript} />
+      </div>
+      </div>
+    ) : (
+      <div className= "mainContent">
+        <h1 className="smallHeading">EduFlex</h1>
+        <div className="inputAndVideo">
+          <ProjectInfo userInput={userInput} implementationDetails={implementationDetails} setImplementationDetails={setImplementationDetails}/>
+          <Video youTubeLink={youTubeLink} />
+          <ProjectMapping youTubeTranscript={youTubeTranscript} implementationDetails={implementationDetails}/>
+        </div>
+        <LabelBar youTubeLink={youTubeLink} segments = {segments}/>
+        <UserOutput userInput={userInput} /> 
+      </div>
+    )}
+   </>
   );
 }
 
