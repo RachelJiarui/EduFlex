@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TypeIt from "typeit-react";
 import './App.css';
 import UserInput from './components/user-input/UserInput';
 import UserOutput from './components/user-input/UserOutput';
